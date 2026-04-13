@@ -6,173 +6,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f8f9fb;
-    color: #333;
-  }
-
-  header {
-    background: linear-gradient(135deg, #d35400, #ff7a18);
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
-
-  header h2 {
-    margin: 0;
-  }
-
-  .container {
-    padding: 20px;
-    max-width: 950px;
-    margin: auto;
-  }
-
-  .card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  }
-
-  h3 {
-    margin-top: 0;
-    color: #d35400;
-  }
-
-  input, textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 8px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-  }
-
-  button {
-    background: #d35400;
-    color: white;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-
-  button:hover {
-    background: #b84300;
-  }
-
-  .preview {
-    border: 1px dashed #ccc;
-    padding: 15px;
-    border-radius: 8px;
-    background: #fafafa;
-  }
-
-  .badge {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 8px;
-    background: #eaeaea;
-    font-size: 12px;
-  }
-
-  .success {
-    color: green;
-    font-weight: bold;
-  }
-
-  footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-    color: #777;
-  }
-
-  a {
-    color: #d35400;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
+body {font-family: Arial; margin:0; background:#f8f9fb;}
+header {background: linear-gradient(135deg,#d35400,#ff7a18); color:white; padding:20px; text-align:center;}
+.container {max-width:950px; margin:auto; padding:20px;}
+.card {background:white; padding:25px; border-radius:12px; margin-bottom:20px;}
+button {background:#d35400;color:white;padding:10px;border:none;border-radius:6px;}
+h3 {color:#d35400;}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h2>Jahe Social Scheduler Dashboard</h2>
-  <p>Plan, review, and schedule your TikTok content</p>
+<h2>Jahe Social Scheduler Dashboard</h2>
+<p>Manage and schedule your TikTok content</p>
 </header>
 
 <div class="container">
 
-  <!-- CONNECT -->
-  <div class="card">
-    <h3>1. Connect TikTok Account</h3>
-    <p>Status: <span class="badge">Connected</span></p>
-    <button>Reconnect Account</button>
-  </div>
+<div class="card">
+<h3>Connect Account</h3>
+<p>Status: Connected</p>
+<button>Reconnect</button>
+</div>
 
-  <!-- UPLOAD -->
-  <div class="card">
-    <h3>2. Create Content</h3>
+<div class="card">
+<h3>Create Content</h3>
+<input type="file">
+<textarea id="caption"></textarea>
+<button onclick="preview()">Preview</button>
+</div>
 
-    <label>Video File</label>
-    <input type="file">
+<div class="card">
+<h3>Review</h3>
+<p id="previewText">Content preview</p>
+</div>
 
-    <label>Caption</label>
-    <textarea id="caption" placeholder="Write your caption..."></textarea>
-
-    <button onclick="updatePreview()">Preview Content</button>
-  </div>
-
-  <!-- PREVIEW -->
-  <div class="card">
-    <h3>3. Review Content</h3>
-
-    <div class="preview">
-      <p><strong>Video:</strong> (preview simulated)</p>
-      <p><strong>Caption:</strong></p>
-      <p id="previewText">No caption yet</p>
-    </div>
-  </div>
-
-  <!-- SCHEDULE -->
-  <div class="card">
-    <h3>4. Schedule Post</h3>
-
-    <label>Select Date & Time</label>
-    <input type="datetime-local">
-
-    <button onclick="schedulePost()">Schedule & Publish</button>
-
-    <p id="status" style="margin-top:15px;"></p>
-  </div>
+<div class="card">
+<h3>Schedule</h3>
+<input type="datetime-local">
+<button onclick="done()">Publish</button>
+<p id="status"></p>
+</div>
 
 </div>
 
-<footer>
-  <p>
-    <a href="index.html">Home</a> | 
-    <a href="privacy.html">Privacy Policy</a> | 
-    <a href="terms.html">Terms of Service</a>
-  </p>
-</footer>
-
 <script>
-function updatePreview() {
-  const caption = document.getElementById("caption").value;
-  document.getElementById("previewText").innerText = caption || "No caption yet";
+function preview(){
+document.getElementById("previewText").innerText =
+document.getElementById("caption").value;
 }
 
-function schedulePost() {
-  document.getElementById("status").innerHTML =
-    "<span class='success'>✅ Post scheduled successfully!</span>";
+function done(){
+document.getElementById("status").innerText="Post scheduled successfully";
 }
 </script>
 

@@ -2,56 +2,68 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SocialScheduler Dashboard</title>
+<title>Jahe Social Scheduler Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
   body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: #f5f6fa;
+    background: #f8f9fb;
+    color: #333;
   }
 
   header {
-    background: #111;
+    background: linear-gradient(135deg, #d35400, #ff7a18);
     color: white;
-    padding: 15px 20px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  header h2 {
+    margin: 0;
   }
 
   .container {
     padding: 20px;
-    max-width: 900px;
+    max-width: 950px;
     margin: auto;
   }
 
   .card {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 25px;
+    border-radius: 12px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  }
+
+  h3 {
+    margin-top: 0;
+    color: #d35400;
   }
 
   input, textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-top: 8px;
     margin-bottom: 15px;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid #ddd;
   }
 
   button {
-    background: black;
+    background: #d35400;
     color: white;
-    padding: 10px 15px;
+    padding: 12px 18px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: bold;
   }
 
   button:hover {
-    opacity: 0.85;
+    background: #b84300;
   }
 
   .preview {
@@ -63,18 +75,38 @@
 
   .badge {
     display: inline-block;
-    padding: 5px 10px;
-    border-radius: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
     background: #eaeaea;
     font-size: 12px;
   }
+
+  .success {
+    color: green;
+    font-weight: bold;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #777;
+  }
+
+  a {
+    color: #d35400;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <h2>SocialScheduler Dashboard</h2>
+  <h2>Jahe Social Scheduler Dashboard</h2>
+  <p>Plan, review, and schedule your TikTok content</p>
 </header>
 
 <div class="container">
@@ -124,6 +156,14 @@
 
 </div>
 
+<footer>
+  <p>
+    <a href="index.html">Home</a> | 
+    <a href="privacy.html">Privacy Policy</a> | 
+    <a href="terms.html">Terms of Service</a>
+  </p>
+</footer>
+
 <script>
 function updatePreview() {
   const caption = document.getElementById("caption").value;
@@ -131,8 +171,8 @@ function updatePreview() {
 }
 
 function schedulePost() {
-  document.getElementById("status").innerText =
-    "✅ Post scheduled successfully!";
+  document.getElementById("status").innerHTML =
+    "<span class='success'>✅ Post scheduled successfully!</span>";
 }
 </script>
 
